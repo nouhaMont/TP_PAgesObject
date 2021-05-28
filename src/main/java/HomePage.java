@@ -12,29 +12,17 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
+     By InputSearch = By.id("twotabsearchtextbox");
 
-    public HomePage searchNintendoSwitch() {
-        By InputSearch = By.id("twotabsearchtextbox");
-        driver.findElement(InputSearch).sendKeys("Nintendo Switch");
+    public ListArticleNintendo searchNintendoSwitch(String motCle) {
+
+        driver.findElement(InputSearch).sendKeys(motCle);
         By btnSearch = By.id("nav-search-submit-button");
         driver.findElement(btnSearch).click();
-        return this;
+         return new ListArticleNintendo(driver);
     }
 
-    public HomePage selectFirstArticle() {
-        List<WebElement> listArticles = driver.findElements(By.cssSelector(".s-image"));
-        listArticles.get(0).click();
-        return this;
-    }
 
-    public void isTrue() {
-        String resultatAttendu = "Nintendo Switch";
-        By Article = By.cssSelector("#title");
-        WebElement resultat = driver.findElement(Article);
-        String resutatReel = resultat.getText();
-          Assert.assertTrue(resutatReel.contains(resultatAttendu), "y'a une erreur!!");
-
-    }
 
 
 
