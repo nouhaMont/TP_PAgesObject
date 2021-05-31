@@ -24,7 +24,7 @@ public class TestHomePage {
     @Test
     public void testSearchAmazon() {
 
-       HomePage amazonHomePage = new HomePage(driver);
+        HomePage amazonHomePage = new HomePage(driver);
         boolean isArticleDisplay = amazonHomePage.searchNintendoSwitch("Nintendo Switch").selectFirstArticle(0).isArticleExist();
 
         Assert.assertTrue(isArticleDisplay, "there is an error!!");
